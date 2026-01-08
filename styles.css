@@ -1,0 +1,270 @@
+/* De Vormplaats - Styles */
+
+/* CSS Variables */
+:root {
+    --color-primary: #1f9ca2;
+    --color-primary-light: #ffffff;
+    --color-accent: #890f61;
+    --color-text: #333;
+    --color-text-light: #666;
+    --font-family: 'Dosis', sans-serif;
+    --max-width: 700px;
+    --spacing: 2rem;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-text);
+    background-color: var(--color-primary-light);
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.logo {
+    max-width: 320px;
+    height: auto;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+/* Hero */
+.hero {
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+}
+
+/* Intro */
+.intro {
+    margin-bottom: 2rem;
+}
+
+.intro p {
+    margin-bottom: 1rem;
+}
+
+.intro p:first-child {
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+/* Notice */
+.notice {
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+}
+
+.notice .closing {
+    font-weight: 500;
+    color: var(--color-text);
+    margin-top: 1.5rem;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--color-primary),
+        transparent
+    );
+    margin: 2.5rem 0;
+    opacity: 0.4;
+}
+
+/* Contact Section */
+.contact {
+    margin-bottom: 2rem;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(31, 156, 162, 0.1);
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.portrait {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 3px solid var(--color-primary);
+    flex-shrink: 0;
+}
+
+.contact-info h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+}
+
+.roles {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: var(--color-accent);
+}
+
+.contact-link .icon {
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover .icon {
+    color: var(--color-accent);
+}
+
+.contact-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.photo-credit {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    :root {
+        --spacing: 1.5rem;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .logo {
+        max-width: 160px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .portrait {
+        width: 120px;
+        height: 120px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-links {
+        align-items: center;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        animation: none;
+    }
+
+    .contact-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
